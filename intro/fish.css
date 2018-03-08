@@ -1,0 +1,165 @@
+h1 {
+  border: solid blue 1.3px;
+  text-align:center;
+  font-size: 1.7em;
+  font-weight: bold;
+  padding: 3px;
+  background-color:#ccffcc;
+}
+
+h2 {
+  border: solid blue 1px;
+  text-align:center;
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 3px;
+  background-color:#bbffbb;
+}
+
+pre {
+  overflow: auto;
+  max-height: 400px;
+  margin: 10px 10px;
+  padding: 12px;
+  border: 5px groove green;
+  font-family: sans-serif;
+  background-color: #fdfaf4
+}
+
+code {
+  font-family: sans-serif;
+  font-style: italic;
+  padding: 2px;
+  background-color: #E0E0E0;
+}
+
+ul {
+  list-style-image:url("pochi.png");
+}
+
+li {
+  margin-bottom: 12px;
+}
+
+td {
+  padding: 5px;
+}
+
+.tdleft {
+    width:22%;
+    vertical-align:top;
+    padding-top: 20px;
+    min-width:90px;
+    table-layout: fixed;
+}
+
+.tdright {
+    width:20%;
+    vertical-align:top;
+    padding-top: 20px;
+    min-width:90px;
+    table-layout: fixed;
+}
+
+@media screen and (max-width: 799px){
+  .widescreen { display:none;}
+}
+
+@media screen and (min-width: 800px){
+  .widescreen { font-size: small;}
+}
+
+@media screen and (min-width: 700px){
+  .sp { display:none;}
+}
+
+@media screen and (max-width: 699px){
+  .sp { 
+     color: red;
+     font-weight: bold;
+     font-size: large;
+  }
+}
+
+@media screen and (min-width: 700px){
+  .btnpc { 
+     width:350px;
+     font-size:24px;
+     font-weight:bold;
+     text-decoration:none;
+     display:block;
+     text-align:center;
+     padding:13px 0 16px;
+     color:black;
+     background-color:#49a9d4;
+     border-radius:10px;
+     box-shadow:2px 2px #555;
+
+     background-image:-moz-linear-gradient(
+     top,
+     #ffd855 0%,
+     #ffa310);
+ 
+     background-image:-webkit-gradient(
+     linear,left top,left bottom,
+     from(#ffd855),
+     to(#ffa310));
+  }
+}
+
+@media screen and (max-width: 699px){
+  .btnsp { 
+     font-weight:bold;
+     font-size:large;
+     text-decoration:none;
+     display:block;
+     text-align:center;
+     padding:9px 0 11px;
+     color:black;
+     background-color:#49a9d4;
+     border-radius:5px;
+     box-shadow:2px 2px #555;
+
+     background-image:-moz-linear-gradient(
+     top,
+     #ffd855 0%,
+     #ffa310);
+ 
+     background-image:-webkit-gradient(
+     linear,left top,left bottom,
+     from(#ffd855),
+     to(#ffa310));
+     }
+}
+
+@media screen and (min-width: 700px){
+  .short { display:none;}
+}
+
+@media screen and (max-width: 699px){
+  .long { display:none;}
+}
+
+strong {
+  font-weight: bold;
+  font-size: large;
+  padding: 7px;
+  background-color: #ddffdd; 
+}
+
+.readmore-area {
+   display: none;   /* デフォルトでは非表示にしておく */
+}
+
+.snsb {
+	overflow: hidden;
+	list-style-image: none;
+	list-style-type: none;
+}
+.snsb li {
+	float: left;
+	margin-right: 4px;
+}
+.snsb iframe {
+	margin: 0 !important;
+}
