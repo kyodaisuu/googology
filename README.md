@@ -14,6 +14,23 @@ PDFは著者のページにアップしていますが、ここにもバック�
 
 1章のみを抜粋した「巨大数入門」は intro ディレクトリです。
 
+## 書誌情報
+
+- 著者: フィッシュ
+- 出版社: インプレスR&D
+- 版: 第2版
+- 出版年月日: 2017年6月29日
+- ISBN-10: 4802093195
+- ISBN-13: 978-4802093194
+- 国立国会図書館分類表 (NDLC): 整数論 (MA51)
+- 日本十進分類法 (NDC): 412 数論（整数論）
+
+## 図書館の所蔵
+
+- [国立国会図書館](http://iss.ndl.go.jp/books/R100000002-I028329007-00)
+- [大学図書館 (CiNii 図書)](https://ci.nii.ac.jp/ncid/BB25100196)
+- [カーリル](https://calil.jp/book/4802093195)
+
 ## ライセンス
 
-[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.ja)
+[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.ja) (クリエイティブ・コモンズ 表示 - 継承 4.0 国際)
