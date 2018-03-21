@@ -14,6 +14,12 @@ PDFは著者のページにアップしていますが、ここにもバック�
 
 1章のみを抜粋した「巨大数入門」は intro ディレクトリです。
 
+## 受賞
+
+- 2018年3月20日:「[POD個人出版アワード](https://internet.watch.impress.co.jp/docs/news/1112705.html)」審査員特別賞（窓の杜賞）
+
+<img src="https://raw.githubusercontent.com/kyodaisuu/googology/master/prize.jpg" alt="賞状" width="200">
+
 ## 書誌情報
 
 - 著者: フィッシュ
