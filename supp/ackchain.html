@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>アッカーマンチェーン定理</title>
+  <link rel="stylesheet" type="text/css" href="fish.css">
+</head>
+<body>
+
+<h1>アッカーマンチェーン定理</h1>
+<p align="right">
+著者: <a href="index.html">ふぃっしゅっしゅ</a><br>公開日: 2018年4月14日</p>
+</p>
+<p>
+アッカーマンチェーン定理は、長さ4以上の<a href="https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%B3%E3%82%A6%E3%82%A7%E3%82%A4%E3%81%AE%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E8%A1%A8%E8%A8%98">コンウェイのチェーン表記</a>を3変数の<a href="http://ja.googology.wikia.com/wiki/%E5%A4%9A%E5%A4%89%E6%95%B0%E3%82%A2%E3%83%83%E3%82%AB%E3%83%BC%E3%83%9E%E3%83%B3%E9%96%A2%E6%95%B0">多変数アッカーマン関数</a>で近似するための定理である。</p>
+<div class="theorem">
+<div class="title">アッカーマンチェーン定理</div>
+<p>x=1, y>1 または x>1, y+z>0 のとき、
+<div class="equation">A(x,y,z) < C(x+1,y+1,z+2) < A(x,y,z+1)</div>
+である。ここで、</p>
+<ul>
+<li>C(x,y,z) = (x個の3のチェーン)→z→y<br>ただし → はコンウェイのチェーン表記である。<br>
+たとえば C(3,4,5) = 3→3→3→5→4
+<li>Aは3変数アッカーマン関数、すなわち<br>A(0,0,z) = z+1<br>
+A(x+1,0,z) = A(x,z,z)<br>
+A(x,y+1,0) = A(x,y,1)<br>
+A(x,y+1,z+1) = A(x,y,A(x,y+1,z)) である。
+</ul>
+</div>
+
+<p>なお、このページの変数はすべて自然数（0を含む）である。
+</p>
+
+<h3>例</h3>
+
+<ol>
+<li>x=1, y=2, z=1 とすると<br>
+A(1,2,1) < 3→3→3→3 < A(1,2,2)
+<li>x=2, y=2, z=1 とすると<br>
+A(2,2,1) < 3→3→3→3→3 < A(2,2,2)
+<li>x=3, y=2, z=1 とすると<br>
+A(3,2,1) < 3→3→3→3→3→3 < A(3,2,2)
+<li>3変数アッカーマン関数をチェーン表記で近似<br>
+C(x+1,y+1,z+1) < A(x,y,z) < C(x+1,y+1,z+2)
+</ol>
+
+<h2>証明</h2>
+
+<p>不等式
+<div class="equation">A(x,y,z)+1 < C(x+1,y+1,z+2) < A(x,y,z+1) <strong>(式1)</strong></div>
+が成立する x,y,z の条件を考える。</p>
+
+<div class="theorem">
+<div class="title">補題1</div>
+<div class="equation">A(1,1,z)+1 < C(2,2,z+1) < A(1,1,z+1)-3 <strong>(式2)</strong></div>
+</div>
+<p>（証明）</p>
+<p>(1) z=0 のときは、
+<div class="equation">A(1,1,z)+1 = A(1,1,0)+1 = A(1,0,1)+1 = A(0,1,1)+1 = A(1,1)+1 = 4</div>
+<div class="equation">C(2,2,z+1) = 3→3→1→2 =  3→3 = 27</div>
+<div class="equation">A(1,1,z+1)-3 = A(1,1,1)-3 = A(1,0,A(1,1,0))-3 = A(1,0,3)-3 = A(3,3)-3 = 61-3 = 58</div>
+となり、式2が成立する。ここで、3変数アッカーマン関数の1つ目の変数が0のときは、それを消して2変数として通常の<a href="https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%83%E3%82%AB%E3%83%BC%E3%83%9E%E3%83%B3%E9%96%A2%E6%95%B0">アッカーマン関数</a>と同じように計算できることを使った。
+</p>
+<p>
+(2) 式2が z=c で成立すると仮定して、z=c+1 で成立することを示す。
+<p>アッカーマン関数は x>2 で
+<div class="equation">A(x,y) = 2↑<sup>x-2</sup>(y+3)-3 = (2→y+3→x-2)-3</div>
+と計算される（証明は<a href="index.html">巨大数論</a> p.67）ことから、n>2 で
+<div class="equation">A(1,0,n) = A(0,n,n) = A(n,n) = (2→n+3→n-2)-3</div> となる。長さ3のチェーン表記では最右端の数が矢印表記の矢印を重ねる数に相当して演算のレベルを決定づけていることから、A(1,0,n) = (2→n+3→n-2)-3 の大きさについて
+<div class="equation">(3→3→n-3)+3 < A(1,0,n) < (3→3→n)-1</div>
+が成り立つ（1つ目の不等号は n>3 のとき）。
+この式に n = A(1,1,z) を代入すると
+<div class="equation">(3→3→A(1,1,z)-3)+3 < A(1,1,z+1) < (3→3→A(1,1,z))-1 <strong>(式3)</strong></div>となる（1つ目の不等号は z>0 のとき）。ここで
+<div class="equation">A(1,1,z+1) = A(1,0,A(1,1,z))</div>を使った。式2に z=c+1 を代入すると
+<div class="equation">A(1,1,c+1)+1 < C(2,2,c+2) < A(1,1,c+2)-3</div>となり、この式の1つ目の不等号は
+<div class="equation">C(2,2,c+2) = 3→3→C(2,2,c+1) > 3→3→A(1,1,c) (仮定より) > A(1,1,c+1)+1 (式3より)</div>となるため成立し、2つ目の不等号は
+<div class="equation">C(2,2,c+2) = 3→3→C(2,2,c+1) < 3→3→(A(1,1,c+1)-3) (仮定より) < A(1,1,c+2)-3 (式3より)</div>
+となるため成立する。よって (2) が示された。</p>
+<p>(1)(2)より補題1が示された。 //
+</p>
+<div class="theorem">
+<div class="title">補題2</div>
+<p>式1が x=1, y=2 で成立する。</p></div>
+<p>（証明）</p>
+<p>示すべき式は
+<div class="equation">A(1,2,z)+1 < C(2,3,z+2) < A(1,2,z+1) <strong>(式4)</strong></div></p>
+<p>
+(1) z=0 のときは、 
+<div class="equation">A(1,2,z)+1 = A(1,2,0)+1 = A(1,1,1)+1 = 61+1 = 62</div>
+<div class="equation">C(2,3,2) = 3→3→2→3 = 3→3→27→2 = C(2,2,27)</div>
+<div class="equation">A(1,2,z+1) = A(1,2,1) = A(1,1,A(1,2,0)) = A(1,1,61)</div>
+となり、補題1より C(2,2,27) < A(1,1,61) なので式4が成立する。</p>
+<p>(2) z=c で成立すると仮定して、z=c+1 で成立することを示す。
+<div class="equation">A(1,2,z+1) = A(1,1,A(1,2,z))</div> であるから、補題1に z=A(1,2,z) を代入して
+<div class="equation">A(1,2,z+1) < C(2,2,A(1,2,z)+1)-1</div>
+補題1に z=A(1,2,z)-1 を代入して
+<div class="equation">C(2,2,A(1,2,z)) < A(1,2,z+1)-3</div>
+すなわち
+<div class="equation">C(2,2,A(1,2,z)) < A(1,2,z+1) < C(2,2,A(1,2,z)+1)-1 <strong>(式5)</strong></div> となる。式4が z=c で成立するという仮定から
+<div class="equation">C(2,3,c+3) = C(2,2,C(2,3,c+2)) > C(2,2,A(1,2,c)+1) (仮定より)(注) > A(1,2,c+1)+1 (式5より)</div>
+<div class="equation">C(2,3,c+3) = C(2,2,C(2,3,c+2)) < C(2,2,A(1,2,c+1)) (仮定より) < A(1,2,c+2) (式5より)</div>
+よって式4が z=c+1 で成立する。</p>
+<p>
+(注) ここで C(2,3,c+2) > A(1,2,c)+1 を成立させるため、式1の最初を A(x,y,z) ではなく A(x,y,z)+1 とした。</p>
+<p>(1)(2)より補題2が示された。 //</p>
+
+
+<div class="theorem">
+<div class="title">補題3</div>
+<p>式1が x=a (a>0), y=b, y+z>0 で成立するときに、x=a, y=b+1 で成立する。</p>
+</div>
+<p>（証明）</p>
+<p>(1) x=a, y=b+1, z=0 のときに、式1のそれぞれの不等号が以下のように成立する。
+<div class="equation">A(a,b+1,0)+1 = A(a,b,1)+1 < C(a+1,b+1,3) (仮定より) < C(a+1,b+1,C(a+1,b+2,1)) = C(a+1,b+2,2) </div>
+<div class="equation">A(a,b+1,1) = A(a,b,A(a,b,1)) >  C(a+1,b+1,A(a,b,1)+1) (仮定より) > C(a+1,b+1,C(a+1,b+1,2)+1) (仮定より) > C(a+1,b+1,C(a,1,3)) = C(a+1,b+1,C(a+1,b+2,1)) = C(a+1,b+2,2)</div>
+</p>
+<p>(2) x=a, y=b+1, z=c で成立すると仮定して、x=a, y=b+1, z=c+1 で成立することを示す。</p>
+<p>式1に x=a, y=b, z=A(a,b+1,z)-2 を代入すると
+<div class="equation">C(a+1,b+1,A(a,b+1,z)) < A(a,b,A(a,b+1,z)-1)</div>
+式1に x=a, y=b, z=A(a,b+1,z)-1 を代入すると
+<div class="equation">A(a,b,A(a,b+1,z)-1)+1 < C(a+1,b+1,A(a,b+1,z)+1)</div>
+そして<div class="equation">A(a,b+1,z+1) = A(a,b,A(a,b+1,z))</div>であるから、以上の3つの式より
+<div class="equation">C(a+1,b+1,A(a,b+1,z)) < A(a,b+1,z+1) < C(a+1,b+1,A(a,b+1,z)+1)-1 <strong>(式6)</strong></div> となる。式1が x=a, y=b+1, z=c で成立するという仮定より
+<div class="equation">C(a+1,b+2,c+3) = C(a+1,b+1,C(a+1,b+2,c+2)) > C(a+1,b+1,A(a,b+1,c)+1) (仮定より) > A(a,b+1,c+1)+1 (式6より)</div>
+<div class="equation">C(a+1,b+2,c+3) = C(a+1,b+1,C(a+1,b+2,c+2) < C(a+1,b+1,A(a+1,b+1,c+1)) (仮定より) < A(a,b+1,c+2) (式6より)</div>
+よって式1が x=a, y=b+1, z=c+1 で成立する。</p>
+<p>(1)(2)より補題3が示された。 //</p>
+
+<div class="theorem">
+<div class="title">補題4</div>
+<p>式1が x=1, y>1で成立する。</p>
+</div>
+<p>（証明）</p>
+<p>
+(1) 補題2より式1が x=1, y=2 で成立する。</p>
+<p>(2) 補題3より式1が x=1, y=b で成立すれば x=1, y=b+1 で成立する。</p>
+<p>(1)(2)より補題4が示された。 //</p>
+
+<div class="theorem">
+<div class="title">補題5</div>
+<p>式1が x=a, y>1 (a>0) で成立するときに x=a+1, y+z>0 で成立する。</p>
+</div>
+<p>（証明）</p>
+<p>
+(1) x=a+1, y=0, z>0 で式1が成立すること、すなわち
+<div class="equation">A(a+1,0,z)+1 < C(a+2,1,z+2) < A(a+1,0,z+1) <strong>(式7)</strong></div>
+ を示す。
+</p><p>
+式1に x=a, y=z+1, z=1 を代入して (z>0 より y>1 なので仮定より式1が成立する)
+<div class="equation">A(a,z+1,1)+1 < C(a+1,z+2,3) < A(a,z+1,2) <strong>(式8)</strong></div>
+式7の1つ目の不等号は
+<div class="equation">C(a+2,1,z+2) = C(a+1,z+2,3) > A(a,z+1,1)+1 (式8より) = A(a,z,A(a,z,1))+1 > A(a,z,z)+1 = A(a+1,0,z)+1</div>
+
+となって成立し、2つ目の不等号は
+<div class="equation">C(a+2,1,z+2) = C(a+1,z+2,3) < A(a,z+1,2) (式8より) &le; A(a,z+1,z+1) (z>0 より) = A(a+1,0,z+1)</div>
+
+となって成立する。
+</p>
+<p>
+(2) (1) と補題3により、式1が x=a+1, y+z>0 で成立する。
+すなわち補題5が示された。 //</p>
+
+<div class="theorem">
+<div class="title">アッカーマンチェーン定理</div>
+<p>x=1, y>1 または x>1, y+z>0 のとき、
+<div class="equation">A(x,y,z) < C(x+1,y+1,z+2) < A(x,y,z+1)</div></p>
+</div>
+
+<p>（証明）</p>
+<p>
+補題4と補題5から、式1が x=1, y>1 または x>1, y+z>0 のときに成立する。<p>
+<p>よってこの定理が示された。 //</p>
+
+<h2>補足</h2>
+
+<p>
+(補足1) <a href="index.html">巨大数論 第2版</a> p.84 では、A(x,0,z) = A(x-1,z,z) が x+2 変数チェーン表記に相当する大きさの関数となると見積もっている。このページの定理を使えば<div class="equation">C(x,z+1,z+1) < A(x-1,z,z) < C(x,z+1,z+2)</div>となるため、その見積もりが正しいことが確認できた。
+</p>
+
+<p>(補足2) <a href="index.html">巨大数論 第2版</a> p.99-100 に、巨大数探索スレッドに2002年に書き込まれたチェーン表記とふぃっしゅ数のS変換との比較の書き込みを引用した。</p>
+<blockquote>
+87 名前：名無しのような物体 ◆W7plq.175s ：02/10/05 15:41<br>
+<br>
+さて、前スレにも書きましたが、3→a-2→b < 2→a→b < 3→a-1→b であることが確認できました。 <br>
+一応帰納法で証明しましたが･･･読みたいですか？ <br>
+<br>
+さらに、これを用いて <br>
+B(x,y) =(2→(y+3)→(x-2))-3 <br>
+　　　　≒3→(y+1～2)→(x-2) <br>
+C(x,y) ≒3→3→(y+1～2)→(x+1) <br>
+D(x,y) ≒3→3→3→(y+1～2)→(x+1) <br>
+まで計算できました。どうやらＳ変換1回で 3→ がひとつ延長されるようです。 <br>
+これでいよいよふぃっしゅ数が(近似的に)求められる･･･のか？ 
+</blockquote>
+<p>
+これを多変数アッカーマン関数に直したものがこのページの定理である。巨大数探索スレッドには詳しい計算過程は書き込まれていなかったため検証した。
+</p>
+<p>(補足3) <a href="https://twitter.com/googology_quiz/status/982467916179243009">巨大数クイズ Q23</a> で出題された。正解者2名、正答率22%。</p>
+
+<hr>
+
+<p>
+<a href="index.html">ふぃっしゅっしゅ</a></p>
+</body>
+</html>
